@@ -1,0 +1,53 @@
+---
+title: "dashboard"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: journal
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(flexdashboard)
+library(viridis)
+library(p8105.datasets)
+library(plotly)
+```
+
+```{r}
+data("instacart")
+```
+
+```{r}
+set.seed(1)
+
+instacart = 
+    instacart %>%
+sample_n(5000)
+
+instacart %>%
+    mutate(text_label = str_c("Order Hour of Day", order_hour_of_day)) %>%
+    plot_ly (
+        x = ~aisle, y = ~order_dow, type = "scatter", mode = "markers", color = ~order_hour_of_day, text = ~text_label, alpha = 0.5)
+```
+
+
+```{r}
+plot = instacart %>%
+    count(aisle) %>%
+    mutate(aisle = fct_reorder(aisle, n)) %>%
+    top_n(10) %>%
+    plot_ly (
+        x = ~aisle, y = ~n, type = "bar", color = ~aisle)
+```
+
+```{r}
+plot1 = instacart %>%
+    count(aisle) %>%
+    mutate(aisle = fct_reorder(aisle, n)) %>%
+    top_n(10) %>%
+    plot_ly (
+        x = ~aisle, y = ~n, type = "bar", color = ~aisle)
+```
+
