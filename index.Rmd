@@ -34,5 +34,6 @@ $~$
 
 In my free time I love hanging out with friends, walking around New York City, and watching food videos!
 
+$~$
 
 You can learn a lot more about me [here](aboutme.html) and look at some of the work I've been doing [here](dashboard.html)
