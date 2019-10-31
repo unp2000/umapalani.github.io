@@ -1,12 +1,16 @@
 ---
-title: "dashboard"
+title: "Plotly"
 output: 
-  html_document:
-    toc: true
-    toc_float: true
-    theme: journal
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
 ---
 
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+```{r}
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(flexdashboard)
@@ -20,9 +24,6 @@ data("instacart")
 ```
 
 ```{r}
-rmarkdown::render("dashboard.Rmd", output_format = "flexdashboard::flex_dashboard")
-```
-
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 set.seed(1)
 
@@ -30,10 +31,14 @@ instacart =
     instacart %>%
 sample_n(5000)
 ```
+```
 
-$~$
 
-# Days since last order and Customer Frequency
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Plot 1: 
+
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 instacart_scatter_new=
   instacart %>% 
@@ -49,9 +54,11 @@ instacart_scatter_new=
 instacart_scatter_new
 ```
 
-$~$ 
+Column {data-width=350}
+-----------------------------------------------------------------------
 
-# Top 20 Products and Associated Frequencies
+### Plot 2: 
+
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 instacart_bar2 = 
 instacart %>%
@@ -69,9 +76,8 @@ instacart %>%
 instacart_bar2
 ```
 
-$~$ 
+### Plot 3: 
 
-# Top 15 Departments and Corresponding Order Hour of the Day 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 new_instacart =
   instacart %>% 
@@ -88,3 +94,5 @@ inner_join(instacart, new_instacart, by = "department") %>%
       yaxis = list(title = "Hour of the Day")
   )
 ```
+
+rmarkdown::render("dashboard.Rmd", output_format = "flexdashboard::flex_dashboard")
