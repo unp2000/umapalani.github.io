@@ -27,6 +27,8 @@ instacart =
 sample_n(5000)
 ```
 
+$~$
+
 # Days since last order and Customer Frequency
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 instacart_scatter_new=
@@ -43,23 +45,27 @@ instacart_scatter_new=
 instacart_scatter_new
 ```
 
-# Top 10 Products and Associated Frequencies 
+$~$ 
+
+# Top 20 Products and Associated Frequencies
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
-instacart_bar = 
+instacart_bar2 = 
 instacart %>%
     count(aisle) %>%
     mutate(aisle = fct_reorder(aisle, n)) %>%
-    top_n(10) %>%
+    top_n(20) %>%
     plot_ly (
         x = ~aisle, y = ~n, type = "bar", color = ~aisle) %>%
   layout(
-      title = "Top 10 Products and Associated Frequencies", 
+      title = "Top 20 Products and Associated Frequencies", 
       xaxis = list(title = "Aisle Name"), 
       yaxis = list(title = "Frequency")
   )
 
-instacart_bar
+instacart_bar2
 ```
+
+$~$ 
 
 # Top 15 Departments and Corresponding Order Hour of the Day 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
