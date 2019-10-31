@@ -19,7 +19,7 @@ library(plotly)
 data("instacart")
 ```
 
-```{r}
+```{r, echo = FALSE}
 set.seed(1)
 
 instacart = 
@@ -28,26 +28,44 @@ sample_n(5000)
 
 instacart %>%
     mutate(text_label = str_c("Order Hour of Day", order_hour_of_day)) %>%
+    top_n(20) %>%
     plot_ly (
         x = ~aisle, y = ~order_dow, type = "scatter", mode = "markers", color = ~order_hour_of_day, text = ~text_label, alpha = 0.5)
 ```
 
-
-```{r}
-plot = instacart %>%
+# Top 10 Products and Associated Frequencies 
+```{r, echo = FALSE}
+instacart_bar = 
+instacart %>%
     count(aisle) %>%
     mutate(aisle = fct_reorder(aisle, n)) %>%
     top_n(10) %>%
     plot_ly (
-        x = ~aisle, y = ~n, type = "bar", color = ~aisle)
+        x = ~aisle, y = ~n, type = "bar", color = ~aisle) %>%
+  layout(
+      title = "Top 10 Products and Associated Frequencies", 
+      xaxis = list(title = "Aisle Name"), 
+      yaxis = list(title = "Frequency")
+  )
+
+instacart_bar
 ```
 
-```{r}
-plot1 = instacart %>%
-    count(aisle) %>%
-    mutate(aisle = fct_reorder(aisle, n)) %>%
-    top_n(10) %>%
-    plot_ly (
-        x = ~aisle, y = ~n, type = "bar", color = ~aisle)
+# Top 15 Departments and Corresponding Order Hour of the Day 
+```{r, echo = FALSE}
+new_instacart =
+  instacart %>% 
+  count(department, sort = TRUE) %>% 
+  top_n(15) 
+
+inner_join(instacart, new_instacart, by = "department") %>% 
+  mutate(department = fct_reorder(department, order_hour_of_day)) %>% 
+  plot_ly(y = ~order_hour_of_day, color = ~department, type = "box",
+          colors = "Set2") %>%
+  layout(
+      title = "Top 15 Departments and Corresponding Order Hour of the Day", 
+      xaxis = list(title = "Department"), 
+      yaxis = list(title = "Order Hour of the Day")
+  )
 ```
 
