@@ -15,3 +15,18 @@ $~$
 
 My name is Uma.I was born and raised in the beautiful Bay Area!! I attendend 
 Santa Clara University where I studied Psychology and Public Health Science 
+
+$~$ 
+
+Upon graduating, I worked at a pharmaceutical market research firm called Zitter Health Insights in San Francisco, CA.
+
+$~$ 
+
+I now live in Manhattan, NY where I'm studying Public Health at the Mailman School of Public Health at Columbia University! 
+
+$~$ 
+
+In my free time I love hanging out with friends, walking around New York City, and watching food videos!
+
+
+You can learn a lot more about me [here](aboutme.html)
