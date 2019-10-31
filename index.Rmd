@@ -1,0 +1,17 @@
+---
+title: "Uma Palaniappan's Website "
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: journal
+---
+
+$~$ 
+
+Thanks for stopping by - Welcome to my website! 
+
+$~$ 
+
+My name is Uma.I was born and raised in the beautiful Bay Area!! I attendend 
+Santa Clara University where I studied Psychology and Public Health Science 
