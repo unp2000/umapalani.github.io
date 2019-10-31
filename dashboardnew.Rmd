@@ -10,17 +10,14 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 library(flexdashboard)
 library(tidyverse)
-library(flexdashboard)
 library(viridis)
 library(p8105.datasets)
 library(plotly)
 ```
 
-```{r, warning = FALSE}
+```{r}
 data("instacart")
-```
 
-```{r, warning = FALSE}
 set.seed(1)
 
 instacart = 
@@ -33,7 +30,7 @@ Column {data-width=650}
 
 ### Plot 1: 
 
-```{r, warning = FALSE}
+```{r}
 instacart_scatter_new=
   instacart %>% 
   count(days_since_prior_order, sort = TRUE) %>% 
@@ -53,7 +50,7 @@ Column {data-width=350}
 
 ### Plot 2: 
 
-```{r, warning = FALSE}
+```{r}
 instacart_bar2 = 
 instacart %>%
     count(aisle) %>%
@@ -72,7 +69,7 @@ instacart_bar2
 
 ### Plot 3: 
 
-```{r, warning = FALSE}
+```{r}
 new_instacart =
   instacart %>% 
   count(department, sort = TRUE) %>% 
