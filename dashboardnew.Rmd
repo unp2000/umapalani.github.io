@@ -6,7 +6,8 @@ output:
     vertical_layout: fill
 ---
 
-```{r, warning = FALSE}
+```{r setup, warning = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 library(flexdashboard)
 library(tidyverse)
 library(flexdashboard)
@@ -87,5 +88,3 @@ inner_join(instacart, new_instacart, by = "department") %>%
       yaxis = list(title = "Hour of the Day")
   )
 ```
-
-rmarkdown::render("dashboard.Rmd", output_format = "flexdashboard::flex_dashboard")
