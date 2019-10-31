@@ -8,7 +8,8 @@ output:
 
 ```{r setup, include=FALSE}
 #install.packages("dashboard")
-library(dashboard)
+library(flexdashboard)
+
 ```
 
 Column {data-width=650}
