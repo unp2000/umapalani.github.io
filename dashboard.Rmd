@@ -27,10 +27,15 @@ instacart =
 sample_n(5000)
 
 instacart %>%
-    mutate(text_label = str_c("Order Hour of Day", order_hour_of_day)) %>%
-    top_n(20) %>%
+    mutate(text_label = str_c("Days Since Prior Order", days_since_prior_order)) %>%
     plot_ly (
-        x = ~aisle, y = ~order_dow, type = "scatter", mode = "markers", color = ~order_hour_of_day, text = ~text_label, alpha = 0.5)
+        x = ~order_hour_of_day, y = ~days_since_prior_order, type = "scatter", mode = "markers", color = "Set2", text = ~text_label, alpha = 0.5)
+
+instacart_scatter = 
+instacart %>%
+    mutate(text_label = str_c("Order Hour of Day", order_hour_of_day)) %>%
+    plot_ly (
+        x = ~days_since_prior_order, y = ~order_hour_of_day, type = "scatter", mode = "markers", color = "Set2", text = ~text_label, alpha = 0.5)
 ```
 
 # Top 10 Products and Associated Frequencies 
@@ -67,5 +72,9 @@ inner_join(instacart, new_instacart, by = "department") %>%
       xaxis = list(title = "Department"), 
       yaxis = list(title = "Order Hour of the Day")
   )
+```
+
+```{r}
+
 ```
 
