@@ -15,7 +15,7 @@ library(p8105.datasets)
 library(plotly)
 ```
 
-```{r}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 data("instacart")
 
 set.seed(1)
@@ -30,7 +30,7 @@ Column {data-width=650}
 
 ### Plot 1: 
 
-```{r}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
   instacart %>% 
   count(days_since_prior_order, sort = TRUE) %>% 
   plot_ly(x = ~days_since_prior_order, y = ~n,
@@ -47,7 +47,7 @@ Column {data-width=350}
 
 ### Plot 2: 
 
-```{r}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 instacart %>%
     count(aisle) %>%
     mutate(aisle = fct_reorder(aisle, n)) %>%
@@ -63,8 +63,9 @@ instacart %>%
 
 ### Plot 3: 
 
-```{r}
-  instacart %>% 
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+
+new_instacart = instacart %>% 
   count(department, sort = TRUE) %>% 
   top_n(15) 
 
