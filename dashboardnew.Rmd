@@ -31,7 +31,6 @@ Column {data-width=650}
 ### Plot 1: 
 
 ```{r}
-instacart_scatter_new=
   instacart %>% 
   count(days_since_prior_order, sort = TRUE) %>% 
   plot_ly(x = ~days_since_prior_order, y = ~n,
@@ -41,8 +40,6 @@ instacart_scatter_new=
       xaxis = list(title = "Days Since Prior Order"), 
       yaxis = list(title = "Customer Frequency")
   )
-
-instacart_scatter_new
 ```
 
 Column {data-width=350}
@@ -51,7 +48,6 @@ Column {data-width=350}
 ### Plot 2: 
 
 ```{r}
-instacart_bar2 = 
 instacart %>%
     count(aisle) %>%
     mutate(aisle = fct_reorder(aisle, n)) %>%
@@ -63,14 +59,11 @@ instacart %>%
       xaxis = list(title = "Aisle Name"), 
       yaxis = list(title = "Frequency")
   )
-
-instacart_bar2
 ```
 
 ### Plot 3: 
 
 ```{r}
-new_instacart =
   instacart %>% 
   count(department, sort = TRUE) %>% 
   top_n(15) 
