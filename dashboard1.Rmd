@@ -8,10 +8,6 @@ output:
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
-```
-
-```{r}
-```{r setup, include=FALSE}
 library(tidyverse)
 library(flexdashboard)
 library(viridis)
@@ -23,7 +19,6 @@ library(plotly)
 data("instacart")
 ```
 
-```{r}
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 set.seed(1)
 
