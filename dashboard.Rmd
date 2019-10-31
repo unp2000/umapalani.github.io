@@ -15,11 +15,11 @@ library(p8105.datasets)
 library(plotly)
 ```
 
-```{r}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 data("instacart")
 ```
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 set.seed(1)
 
 instacart = 
@@ -27,8 +27,8 @@ instacart =
 sample_n(5000)
 ```
 
-# Days since the last order and Customer Frequency
-```{r, echo = FALSE}
+# Days since last order and Customer Frequency
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 instacart_scatter_new=
   instacart %>% 
   count(days_since_prior_order, sort = TRUE) %>% 
@@ -44,7 +44,7 @@ instacart_scatter_new
 ```
 
 # Top 10 Products and Associated Frequencies 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 instacart_bar = 
 instacart %>%
     count(aisle) %>%
@@ -62,7 +62,7 @@ instacart_bar
 ```
 
 # Top 15 Departments and Corresponding Order Hour of the Day 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 new_instacart =
   instacart %>% 
   count(department, sort = TRUE) %>% 
@@ -75,7 +75,7 @@ inner_join(instacart, new_instacart, by = "department") %>%
   layout(
       title = "Top 15 Departments and Corresponding Order Hour of the Day", 
       xaxis = list(title = "Department"), 
-      yaxis = list(title = "Order Hour of the Day")
+      yaxis = list(title = "Hour of the Day")
   )
 ```
 
