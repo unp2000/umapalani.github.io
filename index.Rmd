@@ -9,20 +9,26 @@ output:
 
 $~$ 
 
-Thanks for stopping by - Welcome to my website!!
+Welcome to my website, thanks for stopping by! 
 
 $~$ 
 
 My name is Uma.I was born and raised in the beautiful Bay Area!! I attendend 
 Santa Clara University where I studied Psychology and Public Health Science 
 
+![](download.jpg)
+
 $~$ 
 
 Upon graduating, I worked at a pharmaceutical market research firm called Zitter Health Insights in San Francisco, CA.
 
+![](download-1.png)
+
 $~$ 
 
 I now live in Manhattan, NY where I'm studying Public Health at the Mailman School of Public Health at Columbia University! 
+
+![](new-york-city-guide.jpg)
 
 $~$ 
 
