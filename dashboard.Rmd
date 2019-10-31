@@ -27,7 +27,7 @@ instacart =
 sample_n(5000)
 ```
 
-# Days since Prior Order and Customer Frequency
+# Days since the last order and Customer Frequency
 ```{r, echo = FALSE}
 instacart_scatter_new=
   instacart %>% 
@@ -35,7 +35,7 @@ instacart_scatter_new=
   plot_ly(x = ~days_since_prior_order, y = ~n,
           type = "scatter", mode = "markers", color = ~days_since_prior_order, alpha = 0.5) %>%
    layout(
-      title = "Days since Prior Order and Customer Frequency", 
+      title = "Days since Last Order and Customer Frequency", 
       xaxis = list(title = "Days Since Prior Order"), 
       yaxis = list(title = "Customer Frequency")
   )
